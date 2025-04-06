@@ -41,7 +41,7 @@ export default function Skill() {
               {skillList.map((skill) => (
                 <div
                   key={skill}
-                  className="py-4 px-0 bg-white/5 border border-gray-700 rounded-2xl text-white shadow-sm hover:shadow-yellow-400/40 hover:border-yellow-400 hover:bg-yellow-500/10 transition hover:-translate-1 duration-300 ease-in-out backdrop-blur-md cursor-pointer text-sm md:text-base font-medium"
+                  className="py-4 px-0 border-dashed bg-white/5 border border-gray-700 rounded-2xl text-white shadow-sm hover:shadow-yellow-400/40 hover:border-yellow-400 hover:bg-yellow-500/10 transition hover:-translate-1 duration-300 ease-in-out backdrop-blur-md cursor-pointer text-sm md:text-base font-medium"
                 >
                   {skill}
                 </div>

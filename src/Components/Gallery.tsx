@@ -92,6 +92,7 @@ const ImageMarquee = () => {
           return (
             <img
               key={i}
+              loading='lazy'
               src={img}
               alt={`marquee-img-${i}`}
               className="w-[200px] h-[250px] object-cover mx-2"
