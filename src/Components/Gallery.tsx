@@ -13,8 +13,8 @@ import pexelsOlaDapo from '../assets/pexels-ola-dapo-1754561-3345882.jpg';
 import pexelsThisIsEngineering from '../assets/pexels-thisisengineering-3861964.jpg';
 
 const ImageMarquee = () => {
-  const [images, setImages] = useState([]);
-  const marqueeRef = useRef(null);
+  const [images, setImages] = useState<string[]>([]);
+  const marqueeRef = useRef<HTMLDivElement>(null);
   const offsetRef = useRef(0);
   const speedRef = useRef(4); // Current speed
   const targetSpeedRef = useRef(4); // Target speed
@@ -40,7 +40,7 @@ const ImageMarquee = () => {
   useEffect(() => {
     if (!marqueeRef.current) return;
 
-    let frameId;
+    let frameId: number;
 
     const animate = () => {
       // Smoothly transition speed toward targetSpeed
@@ -48,12 +48,14 @@ const ImageMarquee = () => {
 
       offsetRef.current -= speedRef.current;
 
-      const totalWidth = marqueeRef.current.scrollWidth / 2;
+      const totalWidth = marqueeRef.current!.scrollWidth / 2;
+
       if (Math.abs(offsetRef.current) >= totalWidth) {
         offsetRef.current = 0; // Reset offset when half is scrolled
       }
+  
+      marqueeRef.current!.style.transform = `translateX(${offsetRef.current}px)`;
 
-      marqueeRef.current.style.transform = `translateX(${offsetRef.current}px)`;
       frameId = requestAnimationFrame(animate);
     };
 
