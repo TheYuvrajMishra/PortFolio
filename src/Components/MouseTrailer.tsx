@@ -1,37 +1,38 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function MouseTrailer() {
   const trailerRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const isMobile = window.innerWidth <= 768;
-    if (isMobile) return;
+    if (isMobile || !trailerRef.current) return;
 
     let mouseX = 0;
     let mouseY = 0;
     let trailerX = 0;
     let trailerY = 0;
+    let isVisible = false;
+
+    const showTrailer = () => {
+      if (trailerRef.current && !isVisible) {
+        trailerRef.current.style.opacity = "1";
+        trailerRef.current.style.transform = `translate(${trailerX - 10}px, ${trailerY - 10}px) scale(1)`;
+        isVisible = true;
+      }
+    };
+
+    const hideTrailer = () => {
+      if (trailerRef.current) {
+        trailerRef.current.style.opacity = "0";
+        trailerRef.current.style.transform = `scale(0)`;
+        isVisible = false;
+      }
+    };
 
     const handleMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      // Show trailer on first mouse move (if not already visible)
-      if (!visible) setVisible(true);
-    };
-
-    const handleMouseLeave = () => {
-      if (trailerRef.current) {
-        trailerRef.current.style.transform = ` scale(0)`;
-        trailerRef.current.style.opacity = "0";
-      }
-    };
-
-    const handleMouseEnter = () => {
-      if (trailerRef.current) {
-        trailerRef.current.style.opacity = "1";
-        trailerRef.current.style.transform = `translate(${trailerX - 10}px, ${trailerY - 10}px) scale(1)`;
-      }
+      showTrailer();
     };
 
     const animate = () => {
@@ -51,19 +52,17 @@ export default function MouseTrailer() {
     };
 
     document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
-    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mouseleave", hideTrailer);
+    document.addEventListener("mouseenter", showTrailer);
 
     animate();
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("mouseleave", hideTrailer);
+      document.removeEventListener("mouseenter", showTrailer);
     };
-  }, [visible]);
-
-  if (window.innerWidth <= 768) return null;
+  }, []);
 
   return (
     <div
