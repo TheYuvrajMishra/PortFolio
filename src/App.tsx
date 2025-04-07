@@ -9,6 +9,7 @@ import Skill from "./Components 2/Skill";
 import Projects from "./Components 2/Projects";
 import Contact from "./Components 2/Contact";
 import Footer from "./Components 2/Footer";
+import MouseTrailer from "./Components/MouseTrailer";
 
 export default function App(){
   const smokeyRef = useRef<HTMLDivElement>(null);
@@ -33,21 +34,21 @@ export default function App(){
   }, []);
 
   return (
-    
     <div className="fixed w-full h-screen overflow-x-hidden bg-black">
       {/* Grid background */}
       <div
         ref={gridRef}
         className="fixed inset-0 bg-[radial-gradient(#444_1px,transparent_1px)] [background-size:40px_40px] transition-transform duration-100"
-      />
+        />
       {/* Smokey layer
       <div
-        ref={smokeyRef}
-        className="absolute inset-0 bg-[url('/smoke.png')] bg-cover opacity-20 blur-xl transition-transform duration-100"
+      ref={smokeyRef}
+      className="absolute inset-0 bg-[url('/smoke.png')] bg-cover opacity-20 blur-xl transition-transform duration-100"
       /> */}
 
       {/* Foreground content (Navbar + Hero Text) */}
       <div className="relative z-10 h-full w-full">
+      <MouseTrailer/>
         <Navbar />
         <HeroSection />
         <TextMarquee/>

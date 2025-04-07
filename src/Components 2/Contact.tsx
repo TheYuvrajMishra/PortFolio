@@ -1,9 +1,8 @@
+import { Mail, Linkedin, Github, Instagram } from "lucide-react";
 export default function Contact() {
   return (
     <div id="contact">
-      {/* Contact Section */}
       <section
-        id="contact"
         className="py-20 px-4 md:px-6 bg-gradient-to-b from-transparent to-gray-900/50 text-center"
         data-aos="fade-up"
       >
@@ -16,42 +15,75 @@ export default function Contact() {
         <p className="text-gray-300 mb-8 text-lg md:text-xl font-light">
           Shoot me a message or connect on social media.
         </p>
-        
-        {/* Email Button */}
-        <a
-          href="mailto:yuvraj17mishra11@email.com"
-          className="inline-block px-10 py-5 mb-8 text-white border border-white/20 font-semibold text-lg rounded-full shadow-lg transform transition-all duration-300 hover:bg-yellow-400 hover:text-black"
+
+        {/* Contact Form using Formspree */}
+        <form
+          action="https://formspree.io/f/xeoapekb"
+          method="POST"
+          className="max-w-xl mx-auto w-full flex flex-col gap-5 text-left text-white"
         >
-          📧 yuvraj17mishra11@email.com
-        </a>
-        
-        {/* Social Media Links */}
-        <div className="mt-4 md:mt-6 flex justify-center gap-10 text-white text-lg md:text-xl">
-          <a
-            href="https://www.linkedin.com/in/the-yuvraj-mishra/"
-            className="transform hover:text-yellow-400"
-            target="_blank"
-            rel="noopener noreferrer"
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="px-5 py-3 rounded-md bg-gray-800/20 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="px-5 py-3 rounded-md bg-gray-800/20 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows={4}
+            required
+            className="px-5 py-3 rounded-md bg-gray-800/20 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+
+          <button
+            type="submit"
+            className="px-8 py-3 cursor-pointer text-white border border-dashed border-white/20 font-semibold text-lg shadow-lg transform transition-all duration-300 hover:bg-yellow-400/20 hover:border-dotted hover:border-yellow-400"
           >
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/TheYuvrajMishra"
-            className="transform hover:text-yellow-400"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://instagram.com/_.ultraviolent._/"
-            className="transform hover:text-yellow-400"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-        </div>
+            <Mail className="inline w-5 h-5 mr-2" />
+            Send Message
+          </button>
+        </form>
+
+        {/* Social Media Links with Icons */}
+        <div className="mt-8 flex justify-center gap-6 text-white text-sm md:text-base">
+  <a
+    href="https://www.linkedin.com/in/the-yuvraj-mishra/"
+    className="flex items-center gap-1.5 hover:text-yellow-400 transition-all"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Linkedin className="w-4 h-4" />
+    LinkedIn
+  </a>
+  <a
+    href="https://github.com/TheYuvrajMishra"
+    className="flex items-center gap-1.5 hover:text-yellow-400 transition-all"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Github className="w-4 h-4" />
+    GitHub
+  </a>
+  <a
+    href="https://instagram.com/_.ultraviolent._/"
+    className="flex items-center gap-1.5 hover:text-yellow-400 transition-all"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Instagram className="w-4 h-4" />
+    Instagram
+  </a>
+</div>
+
       </section>
     </div>
   );

@@ -58,7 +58,7 @@ export default function Projects() {
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-gray-700 p-4 md:p-6 rounded-lg transition duration-300 ease-in-out bg-transparent hover:backdrop-blur-lg hover:border-gray-500 hover:-translate-y-1 cursor-pointer"
+              className="border border-dashed border-gray-700 p-4 md:p-6 rounded-lg transition duration-300 ease-in-out bg-transparent hover:backdrop-blur-lg hover:border-gray-500 hover:-translate-y-1 cursor-pointer"
             >
               <div className="flex items-center mb-3">
                 {icon}
