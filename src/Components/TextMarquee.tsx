@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const TextMarquee = () => {
   const services = [
@@ -7,24 +7,28 @@ const TextMarquee = () => {
     "API Integration", "E-commerce Development", "Portfolio Sites", "Landing Pages", "Bug Fixing", "Code Reviews", "Hosting Support"
   ];
 
-  const marqueeRef = useRef(null);
-  const offsetRef = useRef(0);
-  const speedRef = useRef(1.5);
-  const targetSpeedRef = useRef(1.5);
+  const marqueeRef = useRef<HTMLDivElement | null>(null);
+  const offsetRef = useRef<number>(0);
+  const speedRef = useRef<number>(1.5);
+  const targetSpeedRef = useRef<number>(1.5);
 
   useEffect(() => {
-    let frameId;
+    let frameId: number;
 
     const animate = () => {
       speedRef.current += (targetSpeedRef.current - speedRef.current) * 0.05;
       offsetRef.current -= speedRef.current;
 
-      const totalWidth = marqueeRef.current.scrollWidth / 2;
-      if (Math.abs(offsetRef.current) >= totalWidth) {
-        offsetRef.current = 0;
+      const marquee = marqueeRef.current;
+      if (marquee) {
+        const totalWidth = marquee.scrollWidth / 2;
+        if (Math.abs(offsetRef.current) >= totalWidth) {
+          offsetRef.current = 0;
+        }
+
+        marquee.style.transform = `translateX(${offsetRef.current}px)`;
       }
 
-      marqueeRef.current.style.transform = `translateX(${offsetRef.current}px)`;
       frameId = requestAnimationFrame(animate);
     };
 
