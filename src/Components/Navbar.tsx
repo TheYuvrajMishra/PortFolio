@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 
 const Navbar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [_menuOpen, _setMenuOpen] = useState(false);
 
   return (
     <div>
