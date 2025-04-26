@@ -1,17 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 
-// Import your local images
-import pexelsAlxs from '../assets/pexels-alxs-919734.jpg';
-import pexelsDivineTechyGirl from '../assets/pexels-divinetechygirl-1181675.jpg';
-import pexelsJoshSorenson from '../assets/pexels-joshsorenson-1054397.jpg';
-import pexelsJoshSorenson2 from '../assets/pexels-joshsorenson-1714208.jpg';
-import pexelsJuniorTeixeira from '../assets/pexels-junior-teixeira-1064069-2047905.jpg';
-import pexelsLuisGomes from '../assets/pexels-luis-gomes-166706-546819.jpg';
-import pexelsMarinaHinic from '../assets/pexels-marina-hinic-199169-726233.jpg';
-import pexelsMarkusSpiske from '../assets/pexels-markusspiske-1089438.jpg';
-import pexelsOlaDapo from '../assets/pexels-ola-dapo-1754561-3345882.jpg';
-import pexelsThisIsEngineering from '../assets/pexels-thisisengineering-3861964.jpg';
-
 const ImageMarquee = () => {
   const [images, setImages] = useState<string[]>([]);
   const marqueeRef = useRef<HTMLDivElement | null>(null);
@@ -21,17 +9,18 @@ const ImageMarquee = () => {
   const isHoveredRef = useRef<boolean>(false);
 
   useEffect(() => {
+    // Use online image links here
     const imageList = [
-      pexelsAlxs,
-      pexelsDivineTechyGirl,
-      pexelsJoshSorenson,
-      pexelsJoshSorenson2,
-      pexelsJuniorTeixeira,
-      pexelsLuisGomes,
-      pexelsMarinaHinic,
-      pexelsMarkusSpiske,
-      pexelsOlaDapo,
-      pexelsThisIsEngineering,
+      'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg',
+      'https://images.pexels.com/photos/458805/pexels-photo-458805.jpeg',
+      'https://images.pexels.com/photos/1447263/pexels-photo-1447263.jpeg',
+      'https://images.pexels.com/photos/160107/pexels-photo-160107.jpeg',
+      'https://images.pexels.com/photos/1229861/pexels-photo-1229861.jpeg',
+      'https://images.pexels.com/photos/34088/pexels-photo.jpg',
+      'https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg',
+      'https://images.pexels.com/photos/114907/pexels-photo-114907.jpeg',
+      'https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg',
+      'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg',
     ];
     setImages(imageList);
   }, []);

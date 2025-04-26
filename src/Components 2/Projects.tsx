@@ -3,40 +3,40 @@ import { FaDesktop, FaFileExport, FaKeyboard, FaRegWindowMaximize, FaBorderAll, 
 export default function Projects() {
   const projectList = [
     {
+      title: "ZyrixCraft",
+      desc: "Impressive UI/UX and a futuristic design built with React and Tailwind.",
+      icon: <FaFileExport size={24} className="text-yellow-400" />,
+      link: "https://TheYuvrajMishra.github.io/ZyrixCraft", 
+    },
+    {
       title: "SmartInterestAI",
       desc: "Futuristic UI/UX and intuitive design built with React and Tailwind.",
       icon: <FaDesktop size={24} className="text-yellow-400" />,
-      link: "https://github.com/meharjot0710/SmartInterest-AI-frontend", // Replace with actual link
-    },
-    {
-      title: "Monthly Compliance Report",
-      desc: "Static UI for compliance reports – export-ready layout. (HTML)",
-      icon: <FaFileExport size={24} className="text-yellow-400" />,
-      link: "https://github.com/TheYuvrajMishra/Monthly-Compliance-Report", // Replace with actual link
+      link: "https://meharjot0710.github.io/SmartInterest-AI-frontend",
     },
     {
       title: "Typing Faster",
       desc: "WPM tracker with sleek animations and a minimalist interface.",
       icon: <FaKeyboard size={24} className="text-yellow-400" />,
-      link: "https://github.com/TheYuvrajMishra/Typing-Faster", // Replace with actual link
+      link: "https://TheYuvrajMishra.github.io/Typing-Faster",
     },
     {
-      title: "Finhub Landing Page",
-      desc: "Modern landing page using black/yellow theme and glassmorphism.",
+      title: "Advanced Time Manager With AI",
+      desc: "Notion like time management tool with a sleek UI and AI integration.",
       icon: <FaRegWindowMaximize size={24} className="text-yellow-400" />,
-      link: "https://github.com/TheYuvrajMishra/Finhub", // Replace with actual link
+      link: "https://github.com/TheYuvrajMishra/time-manager",
     },
     {
-      title: "Pattern Background",
-      desc: "Reusable HTML/CSS background design using gradients and shapes.",
+      title: "Camera Music (Python)",
+      desc: "A Python project that uses OpenCV to capture images and play music.",
       icon: <FaBorderAll size={24} className="text-yellow-400" />,
-      link: "https://github.com/TheYuvrajMishra/Pattern-Background", // Replace with actual link
+      link: "https://github.com/TheYuvrajMishra/music", 
     },
     {
       title: "More ",
       desc: "Visit My Github Profile",
       icon: <FaGithub size={24} className="text-yellow-400" />,
-      link: "https://github.com/TheYuvrajMishra", // Link to GitHub profile
+      link: "https://github.com/TheYuvrajMishra", 
     }
   ];
 
