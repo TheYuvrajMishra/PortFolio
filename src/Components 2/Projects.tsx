@@ -15,10 +15,10 @@ export default function Projects() {
       link: "https://meharjot0710.github.io/SmartInterest-AI-frontend",
     },
     {
-      title: "Typing Faster",
-      desc: "WPM tracker with sleek animations and a minimalist interface.",
+      title: "User-Dashboard",
+      desc: "A user-friendly dashboard with a sleek UI and advanced features.",
       icon: <FaKeyboard size={24} className="text-yellow-400" />,
-      link: "https://TheYuvrajMishra.github.io/Typing-Faster",
+      link: "https://github.com/TheYuvrajMishra/UserDashboard",
     },
     {
       title: "Advanced Time Manager With AI",
