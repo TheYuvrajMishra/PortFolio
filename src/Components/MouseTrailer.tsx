@@ -1,10 +1,11 @@
-// mousetrailer.tsx
 "use client";
 
-import { useEffect} from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const MouseTrailer = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -12,13 +13,24 @@ const MouseTrailer = () => {
   const smoothY = useSpring(mouseY, { stiffness: 150, damping: 17 });
 
   useEffect(() => {
+    const userAgent = typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+    const mobileCheck = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(userAgent);
+    setIsMobile(mobileCheck);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const move = (e: MouseEvent) => {
       mouseX.set(e.clientX - 8);
       mouseY.set(e.clientY - 8);
     };
+
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isMobile]);
+
+  if (isMobile) return null; // 👈 Don't render anything on mobile
 
   return (
     <motion.div
